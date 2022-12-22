@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
 
-const RestaurantButton = props => {
+const RestaurantButton = ({ onAdd }) => {
   return (
-    <button className="btn btn-primary" onClick={props.onAdd}>
+    <button className="btn btn-primary" onClick={onAdd}>
       Add
     </button>
   );

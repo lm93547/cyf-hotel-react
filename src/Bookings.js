@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Search from "./Search.js";
-import SearchResults from "./SearchResults.js";
-// import FakeBookings from "./data/fakeBookings.json";
+import Search from "./components/Search/Search";
+import SearchResults from "./components/Search/SearchResults.js";
 
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -11,14 +10,15 @@ const Bookings = () => {
       .then(data => setBookings(data));
   }, []);
 
-  const search = searchVal => {
+  const searchCustomer = searchVal => {
     console.info("TO DO!", searchVal);
+    return customerFound;
   };
-  // let bookings = FakeBookings;
+
   return (
     <div className="App-content">
       <div className="container">
-        <Search search={search} />
+        <Search search={searchCustomer} />
         <SearchResults results={bookings} />
       </div>
     </div>

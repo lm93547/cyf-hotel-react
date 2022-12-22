@@ -1,23 +1,29 @@
 import React from "react";
 import Moment from "react-moment";
 
-function SearchResults(props) {
+function SearchResults({ results }) {
+  const tableHeaders = [
+    "Number",
+    "Title",
+    "First Name",
+    "Surname",
+    "E-mail",
+    "Room-ID",
+    "Check in date",
+    "Check out date",
+    "Number of days"
+  ];
+
   return (
     <table className="table table-striped">
       <thead>
         <tr>
-          <th scope="col">Number</th>
-          <th scope="col">Title</th>
-          <th scope="col">First Name</th>
-          <th scope="col">Surname</th>
-          <th scope="col">E-mail</th>
-          <th scope="col">Room Id</th>
-          <th scope="col">Check in Date</th>
-          <th scope="col">Check out Date</th>
-          <th scope="col">Number Of Days</th>
+          {tableHeaders.map(header => {
+            return <th scope="col">{header}</th>;
+          })}
         </tr>
       </thead>
-      {props.results.map((item, i) => {
+      {results.map((item, i) => {
         return (
           <tbody key={i}>
             <tr>
